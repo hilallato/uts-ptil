@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - Moh. Nurhilal Ramadan Lato</title>
+    <!-- Tailwind CSS CDN untuk styling minimalis -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Smooth transition untuk detail */
+        .details-container {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all 0.4s ease-in-out;
+        }
+        .details-container.open {
+            max-height: 500px;
+            opacity: 1;
+            margin-top: 1.5rem;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex items-center justify-center p-4 font-sans">
+
+    <!-- Card Utama -->
+    <div class="bg-white max-w-sm w-full rounded-2xl shadow-md border border-slate-100 p-6 text-center transition-all duration-300">
+        
+        <!-- Foto Profil -->
+        <div class="mb-4 flex justify-center">
+            <img 
+                src="pp.jpeg" 
+                alt="Foto Profil Moh. Nurhilal Ramadan Lato" 
+                class="w-28 h-28 rounded-full object-cover border-2 border-slate-200 shadow-sm"
+            />
+        </div>
+
+        <!-- Informasi Utama -->
+        <h1 class="text-xl font-bold text-slate-900 leading-snug">
+            Moh. Nurhilal Ramadan Lato
+        </h1>
+        
+        <p class="text-xs font-semibold tracking-wide text-indigo-600 uppercase mt-2">
+            D4 TEKNOLOGI REKAYASA KEAMANAN SIBER
+        </p>
+        
+        <p class="text-sm text-slate-500 mt-1 font-medium">
+            Kelas: <span class="text-slate-700">1 C</span>
+        </p>
+
+        <!-- Tombol "Mau cari tau lebih lanjut" -->
+        <button 
+            id="toggleBtn"
+            onclick="toggleDetails()"
+            class="mt-6 w-full bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm py-2.5 px-4 rounded-xl transition duration-200 flex items-center justify-center gap-2 shadow-sm"
+        >
+            <span id="btnText">Mau cari tau lebih lanjut</span>
+            <svg id="btnIcon" class="w-4 h-4 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+        </button>
+
+        <!-- Informasi Tambahan (Tersembunyi secara default) -->
+        <div id="details" class="details-container text-left border-t border-slate-100 pt-4">
+            <div class="space-y-3 text-sm text-slate-600">
+                <!-- Tempat Lahir -->
+                <div>
+                    <span class="block text-xs text-slate-400 font-medium">Tempat Lahir</span>
+                    <span class="font-medium text-slate-800">Gorontalo</span>
+                </div>
+
+                <!-- Riwayat Pendidikan -->
+                <div>
+                    <span class="block text-xs text-slate-400 font-medium">Riwayat Pendidikan Terakhir</span>
+                    <span class="font-medium text-slate-800">SMA Negeri 3 Gorontalo</span>
+                </div>
+
+                <!-- Organisasi -->
+                <div>
+                    <span class="block text-xs text-slate-400 font-medium mb-1">Organisasi yang Pernah Diikuti</span>
+                    <ol class="list-decimal list-inside space-y-1 font-medium text-slate-800">
+                        <li>Organisasi Intra Sekolah (2023-2024)</li>
+                        <li>3 media (2024-2025)</li>
+                    </ol>
+                </div>
+
+                <!-- Tombol Instagram -->
+                <div class="pt-2">
+                    <a 
+                        href="https://www.instagram.com/hilal_lato21/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-medium text-sm py-2 px-4 rounded-xl transition duration-200 shadow-sm"
+                    >
+                        <!-- Icon Instagram -->
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                        <span>Kunjungi Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script JavaScript untuk Toggle Informasi -->
+    <script>
+        function toggleDetails() {
+            const details = document.getElementById('details');
+            const btnText = document.getElementById('btnText');
+            const btnIcon = document.getElementById('btnIcon');
+
+            if (details.classList.contains('open')) {
+                details.classList.remove('open');
+                btnText.textContent = 'Mau cari tau lebih lanjut';
+                btnIcon.style.transform = 'rotate(0deg)';
+            } else {
+                details.classList.add('open');
+                btnText.textContent = 'Tutup informasi';
+                btnIcon.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+</html>
